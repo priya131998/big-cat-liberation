@@ -19,16 +19,18 @@
           <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Big Cat Liberation</a></li>
         </ul>
         <ul class="right">
+          <li> &#128062; </li>
           <li><a href="{% url 'about' %}">About</a></li>
           <li><a href="{% url 'index' %}">All Big Cats</a></li>
           {% if user.is_authenticated %}
-          <li><a href="{% url 'cat_create' %}">Surrender Big Cat</a></li>
-          <li> &nbsp;|&nbsp;Welcome, {{ user }}&nbsp;|&nbsp; </li>
+          <li><a href="{% url 'cats_create' %}">Surrender Big Cat</a></li>
+          <li> &nbsp;&nbsp; Welcome, {{ user }} ฅ^•ﻌ•^ฅ &nbsp;&nbsp; </li>
           <li><a href="{% url 'logout' %}">Log Out</a></li>
           {% else %}
           <li><a href="{% url 'signup' %}">Sign Up</a></li>
           <li><a href="{% url 'login' %}">Log In</a></li>
           {% endif %}
+          <li> &#128062; &nbsp; </li>
         </ul>
       </div>
     </nav>

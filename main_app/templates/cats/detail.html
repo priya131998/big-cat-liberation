@@ -20,9 +20,8 @@
   </div>
   {% if user.is_superuser %}
   <div class="card-action">
-    <h1>super user!</h1>
-    {% comment %} <a href="{% url 'cats_update' cat.id %}">Edit</a>
-    <a href="{% url 'cats_delete' cat.id %}">Delete</a> {% endcomment %}
+    <a href="{% url 'cats_update' cat.id %}">Edit</a>
+    <a href="{% url 'cats_delete' cat.id %}">Delete</a>
   </div>
   {% endif %}
 </div>
