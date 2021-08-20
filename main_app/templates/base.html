@@ -20,10 +20,10 @@
         </ul>
         <ul class="right">
           <li><a href="{% url 'about' %}">About</a></li>
-          <li> &nbsp; &nbsp;Welcome, {{ user }}&nbsp; &nbsp; </li>
           <li><a href="{% url 'index' %}">All Big Cats</a></li>
           {% if user.is_authenticated %}
           <li><a href="{% url 'cat_create' %}">Surrender Big Cat</a></li>
+          <li> &nbsp;|&nbsp;Welcome, {{ user }}&nbsp;|&nbsp; </li>
           <li><a href="{% url 'logout' %}">Log Out</a></li>
           {% else %}
           <li><a href="{% url 'signup' %}">Sign Up</a></li>

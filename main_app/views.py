@@ -4,7 +4,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Cat
+from .models import Cat, User
 
 class CatCreate(LoginRequiredMixin, CreateView):
     model = Cat
@@ -23,15 +23,25 @@ class CatDelete(LoginRequiredMixin, DeleteView):
     model = Cat
     success_url = '/cats/'
 
+def cats_index(request):
+    cats = Cat.objects.all()
+    return render(request, 'cats/index.html', { 'cats': cats })
+
+def cats_detail(request, cat_id):
+    cat = Cat.objects.get(id=cat_id)
+    current_user = request.user
+    return render(request, 'cats/detail.html', {
+        'cat': cat,
+        'user': current_user,
+    })
+
+
 def home (request):
     return render(request, 'home.html')
 
 def about(request):
     return render(request, 'about.html')
 
-def cats_index(request):
-    cats = Cat.objects.all()
-    return render(request, 'cats/index.html', { 'cats': cats })
 
 def signup(request):
     error_message = ''

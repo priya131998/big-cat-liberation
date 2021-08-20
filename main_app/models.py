@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 
 # Create your models here.
-
+superusers = User.objects.filter(is_superuser = True)
 
 class Needs(models.Model):
     name = models.CharField(max_length=50)
