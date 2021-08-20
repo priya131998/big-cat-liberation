@@ -21,10 +21,14 @@ class Cat(models.Model):
     age = models.IntegerField()
     health = models.CharField(max_length=50)
     description = models.TextField(max_length=250)
-    image = models.CharField(max_length=1000)
+    image_url = models.CharField(max_length=1000)
     needs = models.ManyToManyField(Needs)
+    pending = models.BooleanField(default=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
+
+    # def get_absolute_url(self):
+    #     return reverse("detail", kwargs={"cat_id": self.id})
     
