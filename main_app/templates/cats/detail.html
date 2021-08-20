@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Cat Details</h1>
+
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">{{ cat.name }}</span>
+    <p>Breed: {{ cat.breed }}</p>
+    <p>Sex: {{ cat.sex }}</p>
+    <p>Age: {{ cat.age }}</p>
+    <p>Health: {{cat.health}}
+    <p>Description: {{cat.description}}
+    <p>Image: {{cat.image_url}}
+    {% comment %} {% if cat.user.id == user_id %}
+        {% if cat.pending %}
+        <p>Pending...<p/>
+        {% else %}
+        <p>Confirmed!</p>
+        {% endif %} {% endcomment %}
+  </div>
+  {% if user.is_superuser %}
+  <div class="card-action">
+    <h1>super user!</h1>
+    {% comment %} <a href="{% url 'cats_update' cat.id %}">Edit</a>
+    <a href="{% url 'cats_delete' cat.id %}">Delete</a> {% endcomment %}
+  </div>
+  {% endif %}
+</div>
+
+{% endblock %}
