@@ -13,6 +13,9 @@ class Needs(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def get_absolute_url(self):
+        return reverse('needs_detail', kwargs={'pk': self.id})
 
 class Cat(models.Model):
     name = models.CharField(max_length=50)
@@ -29,6 +32,6 @@ class Cat(models.Model):
     def __str__(self):
         return self.name
 
-    # def get_absolute_url(self):
-    #     return reverse("detail", kwargs={"cat_id": self.id})
+    def get_absolute_url(self):
+        return reverse("detail", kwargs={"cat_id": self.id})
     

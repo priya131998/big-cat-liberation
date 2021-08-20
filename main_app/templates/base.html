@@ -24,6 +24,9 @@
           <li><a href="{% url 'index' %}">All Big Cats</a></li>
           {% if user.is_authenticated %}
           <li><a href="{% url 'cats_create' %}">Surrender Big Cat</a></li>
+          {% if user.is_superuser%}
+          <li><a href="{% url 'needs_create' %}">Add a Need</a></li>
+          {% endif %}
           <li> &nbsp;&nbsp; Welcome, {{ user }} ฅ^•ﻌ•^ฅ &nbsp;&nbsp; </li>
           <li><a href="{% url 'logout' %}">Log Out</a></li>
           {% else %}
