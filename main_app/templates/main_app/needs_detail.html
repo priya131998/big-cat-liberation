@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Needs Details</h1>
+
+<div class="row">
+  <div class="col s6 col-offset-3">
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title">{{ needs.name }}</span>
+        <p>Quantity: {{ needs.quantity}}</p>
+        <p>Link: <a href={{ needs.link}}>{{ needs.link}}</a></p>
+        <p>Reason: {{ needs.reason}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

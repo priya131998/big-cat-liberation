@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Cat, User
+from .models import Cat, User, Needs
 
 class CatCreate(LoginRequiredMixin, CreateView):
     model = Cat
@@ -56,3 +57,25 @@ def signup(request):
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
+
+class NeedsList(ListView):
+    model = Needs
+
+class NeedsDetail(DetailView):
+    model = Needs
+
+class NeedsCreate(CreateView):
+    model = Needs
+    fields = '__all__'
+
+class NeedsUpdate(UpdateView):
+    model = Needs
+    fields = ['name', 'quantity', 'link', 'reason']
+
+class NeedsDelete(DeleteView):
+    model = Needs
+    success_url = '/needs/'
+
+def assoc_needs(request, cat_id, needs_id):
+    Cat.objects.get(id=cat_id).needs.add(needs_id)
+    return redirect('detail', cat_id=cat_id)

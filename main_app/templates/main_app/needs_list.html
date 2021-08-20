@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+{% block content %}
+
+<h1>Needs List</h1>
+
+{% for need in needs_list %}
+  <a href="{% url 'needs_detail' need.id %}">
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">{{ need.name }}</span>
+            <p>Quantity: {{ need.quantity }}</p>
+        </div>
+    </div>
+  </a>
+{% endfor %}
+
+{% endblock %}

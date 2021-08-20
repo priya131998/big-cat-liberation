@@ -25,5 +25,46 @@
   </div>
   {% endif %}
 </div>
+<div class="row">
+  <div class="col s6">
+    <h3>{{ cat.name }}'s Needs</h3>
+    {% if cat.needs.count %}
+      {% for need in cat.needs.all %}
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">
+              <span>{{ need.name }}</span> {{ need.quantity }}
+            </span>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <h5>No Needs :(</h5>
+    {% endif %}
+  </div>
+  <!-- Available needs will come after this line -->
+  <div class="col s6">
+    <h3>Available Needs</h3>
+    {% if needs.count %}
+      {% for need in needs.all %}
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">
+              <span>{{ need.name }}</span> {{ need.quantity }}
+            </span>
+          </div>
+          <div class="card-action">
+            <form action="{% url 'assoc_need' cat.id need.id %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn">Add</button>
+            </form>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <h5>{{cat.name}} Already Has All Needs Available</h5>
+    {% endif %}
+  </div>
+</div>
 
 {% endblock %}
