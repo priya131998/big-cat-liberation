@@ -85,3 +85,10 @@ def assoc_needs(request, cat_id, needs_id):
 def unassoc_needs(request, cat_id, needs_id):
     Cat.objects.get(id=cat_id).needs.remove(needs_id)
     return redirect('detail', cat_id=cat_id)
+
+def user_index(request):
+    # current_user = request.user
+    cats = Cat.objects.all()
+    return render(request, 'main_app/user_portal.html', { 'cats': cats, 
+    # 'user': current_user 
+    })
