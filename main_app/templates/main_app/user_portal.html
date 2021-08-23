@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Welcome, {{ user }}</h1>
+
+{% for cat in cats.user %}
+<div class="card">
+  <a href="{% url 'detail' cat.id %}">
+    <div class="card-content">
+      <span class="card-title">{{ cat.name }}</span>
+      <h4>Application Status: {{ cat.pending }}</h4>
+      <p>Breed: {{ cat.breed }}</p>
+      <p>Sex: {{ cat.sex }}</p>
+      <p>Age: {{ cat.age }}</p>
+      <p>Health: {{ cat.health }}</p>
+      
+    </div>
+  </a>
+</div>
+{% endfor %} {% endblock %}
