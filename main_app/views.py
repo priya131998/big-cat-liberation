@@ -30,12 +30,12 @@ def cats_index(request):
 
 def cats_detail(request, cat_id):
     cat = Cat.objects.get(id=cat_id)
-    needs_mug_doesnt_have = Needs.objects.exclude(id__in = cat.needs.all().values_list('id'))
+    needs_cat_doesnt_have = Needs.objects.exclude(id__in = cat.needs.all().values_list('id'))
     current_user = request.user
     return render(request, 'cats/detail.html', {
         'cat': cat,
         'user': current_user,
-        'needs': needs_mug_doesnt_have,
+        'needs': needs_cat_doesnt_have,
     })
 
 
