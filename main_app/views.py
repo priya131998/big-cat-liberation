@@ -30,10 +30,12 @@ def cats_index(request):
 
 def cats_detail(request, cat_id):
     cat = Cat.objects.get(id=cat_id)
+    needs_cat_doesnt_have = Needs.objects.exclude(id__in = cat.needs.all().values_list('id'))
     current_user = request.user
     return render(request, 'cats/detail.html', {
         'cat': cat,
         'user': current_user,
+        'needs': needs_cat_doesnt_have,
     })
 
 
@@ -51,7 +53,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('')
+            return redirect('index')
         else:
             error_message = 'Invalid sign up - try again'
     form = UserCreationForm()
@@ -79,3 +81,14 @@ class NeedsDelete(DeleteView):
 def assoc_needs(request, cat_id, needs_id):
     Cat.objects.get(id=cat_id).needs.add(needs_id)
     return redirect('detail', cat_id=cat_id)
+
+def unassoc_needs(request, cat_id, needs_id):
+    Cat.objects.get(id=cat_id).needs.remove(needs_id)
+    return redirect('detail', cat_id=cat_id)
+
+def user_index(request):
+    # current_user = request.user
+    cats = Cat.objects.all()
+    return render(request, 'main_app/user_portal.html', { 'cats': cats, 
+    # 'user': current_user 
+    })

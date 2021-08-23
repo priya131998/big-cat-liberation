@@ -13,3 +13,4 @@ Designed a sanctuary website for big cats. Where the user gives away their cats 
 
 ### Getting Started: 
 * Link to the [Trello Board](https://trello.com/b/SFAIHgpR/planning)
+* Link to the [Pitch Deck](https://docs.google.com/presentation/d/1Lxul0tmPEzeC0ydBnFt54hAZ-nQEo6-a13E3LvrZzTk/edit#slide=id.ge827bfc624_3_0)
