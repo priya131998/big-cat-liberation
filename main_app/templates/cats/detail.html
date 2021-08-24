@@ -8,21 +8,22 @@
     <p>Breed: {{ cat.breed }}</p>
     <p>Sex: {{ cat.sex }}</p>
     <p>Age: {{ cat.age }}</p>
-    <p>Health: {{cat.health}}
-    <p>Description: {{cat.description}}
-    <p>Image: {{cat.image_url}}
-    {% comment %} {% if cat.user.id == user_id %}
-        {% if cat.pending %}
-        <p>Pending...</p>
-        {% else %}
-        <p>Confirmed!</p>
-        {% endif %} {% endcomment %}
+    <p>Health: {{cat.health}}</p>
+    <p>Description: {{cat.description}}</p>
+    <p>
+      Image: {{cat.image_url}} {% comment %} {% if cat.user.id == user_id %} {%
+      if cat.pending %}
+    </p>
+
+    <p>Pending...</p>
+    {% else %}
+    <p>Confirmed!</p>
+    {% endif %} {% endcomment %}
   </div>
   {% if user.is_superuser %}
   <form action="{% url 'update_pending' cat.id %}" method="post">
-    {% csrf_token %}
-    {{ teatime_form.as_p }}
-    <input type="submit" class="btn" value="Add Tea Time">
+    {% csrf_token %} {{ pending_form.as_p }}
+    <input type="submit" class="btn" value="Update Status" />
   </form>
   <div class="card-action">
     <a href="{% url 'cats_update' cat.id %}">Edit</a>
@@ -33,44 +34,44 @@
 <div class="row">
   <div class="col s6">
     <h3>{{ cat.name }}'s Needs</h3>
-    {% if cat.needs.count %}
-      {% for need in cat.needs.all %}
-        <div class="card">
-          <div class="card-content">
-            <span class="card-title">
-              <span>{{ need.name }}</span> {{ need.quantity }}
-            </span>
-            <br />
-            <a href="{% url 'unassoc_needs' cat.id need.id %}">Remove</a>
-          </div>
-        </div>
-      {% endfor %}
-    {% else %}
-      <h5>No Needs :(</h5>
+    {% if cat.needs.count %} {% for need in cat.needs.all %}
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title">
+          <span>{{ need.name }}</span> {{ need.quantity }}
+        </span>
+        <br />
+        <a href="{% url 'unassoc_needs' cat.id need.id %}">Remove</a>
+      </div>
+    </div>
+    {% endfor %} {% else %}
+    <h5>No Needs :(</h5>
     {% endif %}
   </div>
   <!-- Available needs will come after this line -->
   <div class="col s6">
     <h3>Available Needs</h3>
-    {% if needs.count %}
-      {% for need in needs.all %}
-        <div class="card">
-          <div class="card-content">
-            <span class="card-title">
-              <span>{{ need.name }}</span> {{ need.quantity }}
-            </span>
-          </div>
-          <div class="card-action">
-            <form action="{% url 'assoc_needs' cat.id need.id %}" method="post">
-              {% csrf_token %}
-              <button type="submit" class="btn">Add</button>
-            </form>
-          </div>
-        </div>
-      {% endfor %}
-    {% else %}
-      <h5>{{cat.name}} Already Has All Needs Available</h5>
+    {% if needs.count %} {% for need in needs.all %}
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title">
+          <span>{{ need.name }}</span> {{ need.quantity }}
+        </span>
+      </div>
+      <div class="card-action">
+        <form action="{% url 'assoc_needs' cat.id need.id %}" method="post">
+          {% csrf_token %}
+          <button type="submit" class="btn">Add</button>
+        </form>
+      </div>
+    </div>
+    {% endfor %} {% else %}
+    <h5>{{cat.name}} needs have been met</h5>
     {% endif %}
   </div>
-
-{% endblock %}
+  <script>
+    const selectEl = document.getElementById("id_pending");
+    M.FormSelect.init(selectEl);
+  </script>
+  {% endblock %}
+</div>
