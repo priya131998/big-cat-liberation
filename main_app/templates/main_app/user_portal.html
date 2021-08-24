@@ -3,6 +3,7 @@
 <h1>Welcome, {{ user }}</h1>
 
 {% for cat in cats %}
+{% for status in cat.status_set.all %}
 {% if user == cat.user %}
 <div class="card">
   <a href="{% url 'detail' cat.id %}">
@@ -18,5 +19,6 @@
   </a>
 </div>
 {% endif %}
+{% endfor %}
 {% endfor %} {% endblock %}
 
