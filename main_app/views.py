@@ -95,13 +95,10 @@ def user_index(request):
     # 'user': current_user 
     })
 
-def update_pending(request, cat_id):
-    form = PendingForm(request.POST)
-    if form.is_valid():
-        pending_status = form.save(commit=False)
-        pending_status.cat_id = cat_id
-        pending_status.save()
-    return redirect("admin_portal")
+class UpdatePending(UpdateView):
+    model = Cat
+    fields = ['pending']
+    
 
 def admin_portal(request):
     cats = Cat.objects.all()
