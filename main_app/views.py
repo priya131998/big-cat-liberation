@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
+from .forms import PendingForm
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Cat, User, Needs
+from .models import Cat, Needs
 
 class CatCreate(LoginRequiredMixin, CreateView):
     model = Cat
@@ -37,7 +38,6 @@ def cats_detail(request, cat_id):
         'user': current_user,
         'needs': needs_cat_doesnt_have,
     })
-
 
 def home (request):
     return render(request, 'home.html')
@@ -92,3 +92,11 @@ def user_index(request):
     return render(request, 'main_app/user_portal.html', { 'cats': cats, 
     # 'user': current_user 
     })
+
+def update_pending(request, cat_id):
+    form = PendingForm(request.POST)
+    if form.is_valid():
+        pending_status = form.save(commit=False)
+        pending_status.cat_id = cat_id
+        pending_status.save()
+    return redirect("admin_portal")
