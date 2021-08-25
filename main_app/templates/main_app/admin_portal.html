@@ -2,15 +2,12 @@
 
 <h1>Welcome, {{ user }}</h1>
 
-<<<<<<< HEAD
-{% for cat in cats %} {% if cat.pending == 'P' %}
-=======
-{% for cat in cats %}
- {% if cat.pending == 'Pending' %}
->>>>>>> f340457c29e1b4111e9b0502b3cedc3eb2334313
+{% for cat in cats %} {% if cat.pending == 'Pending' %}
+
 <div class="card">
   <a href="{% url 'detail' cat.id %}">
     <div class="card-content">
+      <img src="{{ cat.image_url }}" class="card-img-top" alt="..." />
       <span class="card-title">{{ cat.name }}</span>
       <h5>Application Status: {{ cat.pending }}</h5>
       <p>Breed: {{ cat.breed }}</p>
@@ -20,4 +17,5 @@
     </div>
   </a>
 </div>
+
 {% endif %} {% endfor %} {% endblock %}
