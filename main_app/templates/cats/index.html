@@ -7,12 +7,8 @@
 <div class="card" style="width: 18rem;">
   <img src="{{ cat.image_url }}" class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">{{ cat.name }}</h5>
-    <p class="card-text">Breed: {{ cat.breed }}</p>
-    <p class="card-text">Sex: {{ cat.sex }}</p>
-    <p class="card-text">Age: {{ cat.age }}</p>
-    <p class="card-text">Health: {{ cat.health }}</p>
-    <a href="{% url 'detail' cat.id %}" class="btn btn-primary">Details</a>
+  <a href="{% url 'detail' cat.id %}">
+    <h5 class="card-title">{{ cat.name }}</h5></a>
   </div>
 </div>
 {% endif %}
