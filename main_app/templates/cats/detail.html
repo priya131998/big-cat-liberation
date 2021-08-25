@@ -4,13 +4,14 @@
 
 <div class="card">
   <div class="card-content">
+    <img src="{{ cat.image_url }}" class="card-img-top" alt="..." />
     <span class="card-title">{{ cat.name }}</span>
     <p>Breed: {{ cat.breed }}</p>
     <p>Sex: {{ cat.sex }}</p>
     <p>Age: {{ cat.age }}</p>
     <p>Health: {{cat.health}}</p>
     <p>Description: {{cat.description}}</p>
-    <p> Image: {{cat.image_url}} </p>
+    <!-- <p>Image: {{cat.image_url}}</p> -->
   </div>
   {% if user.is_superuser %}
   <form action="{% url 'update_pending' cat.id %}" method="post">
@@ -33,7 +34,7 @@
           <span>{{ need.name }}</span> {{ need.quantity }}
         </span>
         <br />
-         <a href="{% url 'unassoc_needs' cat.id need.id %}">Remove</a>
+        <a href="{% url 'unassoc_needs' cat.id need.id %}">Remove</a>
       </div>
     </div>
     {% endfor %} {% else %}
@@ -58,7 +59,7 @@
       </div>
     </div>
     {% endfor %} {% else %}
-    <h5>{{cat.name}} needs have been met</h5>
+    <h5>{{cat.name}}'s needs have been met</h5>
     {% endif %}
   </div>
   <script>
