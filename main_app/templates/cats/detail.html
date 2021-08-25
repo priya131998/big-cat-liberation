@@ -10,15 +10,7 @@
     <p>Age: {{ cat.age }}</p>
     <p>Health: {{cat.health}}</p>
     <p>Description: {{cat.description}}</p>
-    <p>
-      Image: {{cat.image_url}} {% comment %} {% if cat.user.id == user_id %} {%
-      if cat.pending %}
-    </p>
-
-    <p>Pending...</p>
-    {% else %}
-    <p>Confirmed!</p>
-    {% endif %} {% endcomment %}
+    <p> Image: {{cat.image_url}} </p>
   </div>
   {% if user.is_superuser %}
   <form action="{% url 'update_pending' cat.id %}" method="post">
@@ -41,7 +33,7 @@
           <span>{{ need.name }}</span> {{ need.quantity }}
         </span>
         <br />
-        <a href="{% url 'unassoc_needs' cat.id need.id %}">Remove</a>
+         <a href="{% url 'unassoc_needs' cat.id need.id %}">Remove</a>
       </div>
     </div>
     {% endfor %} {% else %}
