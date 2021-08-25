@@ -2,23 +2,17 @@
 
 <h1>Welcome, {{ user }}</h1>
 
-{% for cat in cats %}
-{% for status in cat.status_set.all %}
-{% if user == cat.user %}
+{% for cat in cats %} {% if user == cat.user %}
 <div class="card">
   <a href="{% url 'detail' cat.id %}">
     <div class="card-content">
       <span class="card-title">{{ cat.name }}</span>
-      <h5>Application Status: {{ status.pending }}</h5>
+      <h5>Application Status: {{ cat.pending }}</h5>
       <p>Breed: {{ cat.breed }}</p>
       <p>Sex: {{ cat.sex }}</p>
       <p>Age: {{ cat.age }}</p>
       <p>Health: {{ cat.health }}</p>
-      
     </div>
   </a>
 </div>
-{% endif %}
-{% endfor %}
-{% endfor %} {% endblock %}
-
+{% endif %} {% endfor %} {% endblock %}
