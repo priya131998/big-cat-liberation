@@ -1,7 +1,8 @@
-body {
+body.red-bg {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background-color: red !important;
   }
   
   main {
