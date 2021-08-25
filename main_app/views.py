@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
+from .forms import PendingForm
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Cat, User, Needs
+from .models import Cat, Needs
 
 class CatCreate(LoginRequiredMixin, CreateView):
     model = Cat
@@ -30,14 +31,15 @@ def cats_index(request):
 
 def cats_detail(request, cat_id):
     cat = Cat.objects.get(id=cat_id)
-    needs_mug_doesnt_have = Needs.objects.exclude(id__in = cat.needs.all().values_list('id'))
+    needs_cat_doesnt_have = Needs.objects.exclude(id__in = cat.needs.all().values_list('id'))
     current_user = request.user
+    pending_form = PendingForm()
     return render(request, 'cats/detail.html', {
         'cat': cat,
         'user': current_user,
-        'needs': needs_mug_doesnt_have,
+        'needs': needs_cat_doesnt_have,
+        'pending_form': pending_form,
     })
-
 
 def home (request):
     return render(request, 'home.html')
@@ -85,3 +87,19 @@ def assoc_needs(request, cat_id, needs_id):
 def unassoc_needs(request, cat_id, needs_id):
     Cat.objects.get(id=cat_id).needs.remove(needs_id)
     return redirect('detail', cat_id=cat_id)
+
+def user_index(request):
+    # current_user = request.user
+    cats = Cat.objects.all()
+    return render(request, 'main_app/user_portal.html', { 'cats': cats, 
+    # 'user': current_user 
+    })
+
+class UpdatePending(UpdateView):
+    model = Cat
+    fields = ['pending']
+    
+
+def admin_portal(request):
+    cats = Cat.objects.all()
+    return render(request, 'main_app/admin_portal.html', {'cats': cats})
