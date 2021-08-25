@@ -3,7 +3,7 @@
 <h1>Big Cats</h1>
 
 {% for cat in cats %}
-{% if cat.pending == 'A' in cats %}
+{% if cat.pending == 'A' %}
 <div class="card">
   <a href="{% url 'detail' cat.id %}">
     <div class="card-content">
