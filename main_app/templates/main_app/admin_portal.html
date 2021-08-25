@@ -3,7 +3,7 @@
 <h1>Welcome, {{ user }}</h1>
 
 {% for cat in cats %}
- {% if cat.pending == 'P' %}
+ {% if cat.pending == 'Pending' %}
 <div class="card">
   <a href="{% url 'detail' cat.id %}">
     <div class="card-content">
