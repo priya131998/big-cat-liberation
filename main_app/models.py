@@ -32,6 +32,11 @@ class Cat(models.Model):
     description = models.TextField(max_length=250)
     image_url = models.CharField(max_length=1000)
     needs = models.ManyToManyField(Needs)
+    pending = models.CharField(
+        max_length=1,
+        choices=APP_STATUS,
+        default=APP_STATUS[0][0],
+        )
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -40,11 +45,4 @@ class Cat(models.Model):
     def get_absolute_url(self):
         return reverse("detail", kwargs={"cat_id": self.id})
     
-class Status(models.Model):
-    pending = models.CharField(
-        max_length=1,
-        choices=APP_STATUS,
-        default=APP_STATUS[0][0],
-        )
-    cat = models.ForeignKey(Cat, on_delete=models.CASCADE)
     

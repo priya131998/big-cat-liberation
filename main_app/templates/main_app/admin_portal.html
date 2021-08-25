@@ -3,8 +3,7 @@
 <h1>Welcome, {{ user }}</h1>
 
 {% for cat in cats %}
-{% for status in cat.status_set.all %}
- {% if status.pending == 'P' %}
+ {% if cat.pending == 'P' %}
 <div class="card">
   <a href="{% url 'detail' cat.id %}">
     <div class="card-content">
@@ -17,4 +16,4 @@
     </div>
   </a>
 </div>
-{% endif %} {% endfor %} {% endfor %} {% endblock %}
+{% endif %} {% endfor %} {% endblock %}
