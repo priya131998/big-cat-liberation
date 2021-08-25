@@ -1,8 +1,17 @@
-body {
+body.red-bg {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background-color: rgb(223, 189, 148);
+  background-color: red !important;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer.page-footer {
+  padding-top: 0;
+  text-align: right;
 }
 
 main {
