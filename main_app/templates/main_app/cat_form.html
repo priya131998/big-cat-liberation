@@ -1,12 +1,57 @@
 {% extends 'base.html' %} 
 {% block content %}
 
-<h1>Add Cat</h1>
+  {% if object %}
+    <!-- UpdateView rendering this template -->
+    <h1>Edit <span class="teal-text">{{ object.name }}</span></h1>
+  {% else %}
 
+<h1>Add Cat</h1>
+{% endif %}
 <form action="" method="post">
 {% csrf_token %} 
-{{ form.as_table }}
-<input type="submit" value="Submit!" class="btn" />
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Name: </th>
+      <td><input id="name" type="text" name="name"></td>
+    </tr>
+    <tr>
+      <th scope="row">Breed: </th>
+      <td><input id="breed" type="text" name="breed"></td>
+    </tr>
+    <tr>
+      <th scope="row">Sex: </th>
+      <td><input id="sex" type="text" name="sex"></td>
+    </tr>
+     <tr>
+      <th scope="row">Age: </th>
+      <td><input id="age" type="number" name="age"></td>
+    </tr>
+     <tr>
+      <th scope="row">Health: </th>
+      <td><input id="health" type="text" name="health"></td>
+    </tr>
+     <tr>
+      <th scope="row">Description: </th>
+      <td><input id="descritption" type="text" name="description"></td>
+    </tr>
+     <tr>
+      <th scope="row">Image Url: </th>
+      <td><input id="image_url" type="text" name="image_url"></td>
+    </tr>
+  </tbody>
+</table>
+<button type="submit" class="btn btn-primary">Submit Cat</button>
+
 </form>
+ {% if object %}
+    <button type="submit" class="btn btn-warning"><a href="{% url 'detail' object.id %}">Cancel</a></button>
+  {% endif %}
 
 {% endblock %}
