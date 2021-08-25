@@ -128,7 +128,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/user/' # Change to '/cats/'
 LOGOUT_REDIRECT_URL = '/'
 
+<<<<<<< HEAD
 # Configure Django App for Heroku.
 import django_heroku
 django_heroku.settings(locals())
 
+=======
+import django_heroku
+django_heroku.settings(locals())
+
+
+>>>>>>> f340457c29e1b4111e9b0502b3cedc3eb2334313
