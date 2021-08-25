@@ -1,8 +1,8 @@
 from django.forms import ModelForm
-from .models import Status
+from .models import Cat
 
 
 class PendingForm(ModelForm):
     class Meta:
-        model = Status
+        model = Cat
         fields = ["pending"]
