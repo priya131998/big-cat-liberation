@@ -2,7 +2,12 @@
 
 <h1>Welcome, {{ user }}</h1>
 
+<<<<<<< HEAD
 {% for cat in cats %} {% if cat.pending == 'P' %}
+=======
+{% for cat in cats %}
+ {% if cat.pending == 'Pending' %}
+>>>>>>> f340457c29e1b4111e9b0502b3cedc3eb2334313
 <div class="card">
   <a href="{% url 'detail' cat.id %}">
     <div class="card-content">
