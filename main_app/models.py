@@ -6,9 +6,9 @@ from django.contrib.auth.models import User
 admins = User.objects.filter(is_superuser = True)
 
 APP_STATUS = (
-    ('P', 'Pending...'),
-    ('A', 'Approved'),
-    ('D', 'Denied'),
+    ('Pending', 'Pending...'),
+    ('Approved', 'Approved'),
+    ('Denied', 'Denied'),
 )
 
 class Needs(models.Model):
@@ -33,7 +33,7 @@ class Cat(models.Model):
     image_url = models.CharField(max_length=1000)
     needs = models.ManyToManyField(Needs)
     pending = models.CharField(
-        max_length=1,
+        max_length=8,
         choices=APP_STATUS,
         default=APP_STATUS[0][0],
         )
