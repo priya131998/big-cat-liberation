@@ -1,19 +1,28 @@
 body.red-bg {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    background-color: red !important;
-  }
-  
-  main {
-    flex: 1 0 auto;
-  }
-  
-  footer.page-footer {
-    padding-top: 0;
-    text-align: right;
-  }
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: red !important;
+}
 
-  #id_in_use {
-    padding: 20px;
-  }
+main {
+  flex: 1 0 auto;
+}
+
+footer.page-footer {
+  padding-top: 0;
+  text-align: right;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer.page-footer {
+  padding-top: 0;
+  text-align: right;
+}
+
+#id_in_use {
+  padding: 20px;
+}

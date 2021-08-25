@@ -2,8 +2,7 @@
 
 <h1>Welcome, {{ user }}</h1>
 
-{% for cat in cats %}
-{% if user == cat.user %}
+{% for cat in cats %} {% if user == cat.user %}
 <div class="card">
   <a href="{% url 'detail' cat.id %}">
     <div class="card-content">
@@ -13,11 +12,7 @@
       <p>Sex: {{ cat.sex }}</p>
       <p>Age: {{ cat.age }}</p>
       <p>Health: {{ cat.health }}</p>
-      
     </div>
   </a>
 </div>
-{% endif %}
-{% endfor %}
-{% endblock %}
-
+{% endif %} {% endfor %} {% endblock %}
