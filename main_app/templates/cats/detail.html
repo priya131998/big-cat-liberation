@@ -11,12 +11,11 @@
     <p>Age: {{ cat.age }}</p>
     <p>Health: {{cat.health}}</p>
     <p>Description: {{cat.description}}</p>
-    <!-- <p>Image: {{cat.image_url}}</p> -->
   </div>
   {% if user.is_superuser %}
   <form action="{% url 'update_pending' cat.id %}" method="post">
     {% csrf_token %} {{ pending_form.as_p }}
-    <input type="submit" class="btn" value="Update Status" />
+    <input type="submit" class="btn" value="Update Status" class="btn btn-primary"/>
   </form>
   <div class="card-action">
     <a href="{% url 'cats_update' cat.id %}">Edit</a>
@@ -34,7 +33,9 @@
           <span>{{ need.name }}</span> {{ need.quantity }}
         </span>
         <br />
+        {% if user.is_superuser %}
         <a href="{% url 'unassoc_needs' cat.id need.id %}">Remove</a>
+        {% endif %}
       </div>
     </div>
     {% endfor %} {% else %}
@@ -54,7 +55,9 @@
       <div class="card-action">
         <form action="{% url 'assoc_needs' cat.id need.id %}" method="post">
           {% csrf_token %}
-          <button type="submit" class="btn">Add</button>
+          {% if user.is_superuser %}
+          <button type="submit" class="btn" class="btn btn-primary">Add</button>
+          {% endif %}
         </form>
       </div>
     </div>
