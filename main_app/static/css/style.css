@@ -59,15 +59,16 @@ body {
     transform: translateY(-50%); 
   } */
   .title1 {
+    position: absolute;
     color: white;
-    font-size: 2.6vw;
+    font-size: 5vw;
     text-align: center;
-    padding-top: 50x;
+    padding-top: 50px;
   }
   .title {
-    /* padding-top: 20%; */
+    padding-top: 16%;
     color: white;
-    font-size: 2.6vw;
+    font-size: 4vw;
     text-align: center;
     overflow: hidden; /* Ensures the content is not revealed until the animation */
     /* border-right: .15em solid orange; The typwriter cursor */
