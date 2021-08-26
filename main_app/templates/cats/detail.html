@@ -15,11 +15,12 @@
   {% if user.is_superuser %}
   <form action="{% url 'update_pending' cat.id %}" method="post">
     {% csrf_token %} {{ pending_form.as_p }}
-    <input type="submit" class="btn" value="Update Status" class="btn btn-primary"/>
+    <input type="submit" value="Update Status" class="btn btn-primary"/>
   </form>
   <div class="card-action">
-    <a href="{% url 'cats_update' cat.id %}">Edit</a>
-    <a href="{% url 'cats_delete' cat.id %}">Delete</a>
+    <br />
+    <a href="{% url 'cats_update' cat.id %}" class="btn btn-secondary">Edit</a>
+    <a href="{% url 'cats_delete' cat.id %}" class="btn btn-secondary">Delete</a>
   </div>
   {% endif %}
 </div>
@@ -34,7 +35,8 @@
         </span>
         <br />
         {% if user.is_superuser %}
-        <a href="{% url 'unassoc_needs' cat.id need.id %}">Remove</a>
+        
+        <a href="{% url 'unassoc_needs' cat.id need.id %}" class="btn btn-primary">Remove</a>
         {% endif %}
       </div>
     </div>
@@ -56,7 +58,8 @@
         <form action="{% url 'assoc_needs' cat.id need.id %}" method="post">
           {% csrf_token %}
           {% if user.is_superuser %}
-          <button type="submit" class="btn" class="btn btn-primary">Add</button>
+          
+          <button type="submit" class="btn btn-primary">Add</button>
           {% endif %}
         </form>
       </div>
