@@ -2,25 +2,25 @@
 
 <h1>Cat Details</h1>
 
-<div class="card">
-  <div class="card-content">
-    <img src="{{ cat.image_url }}" class="card-img-top" alt="..." />
-    <span class="card-title">{{ cat.name }}</span>
+<div class="cat-detail-card">
+  <div class="cat-detail">
+    <img src="{{ cat.image_url }}" class="card-img-detail" alt="..." />
+    <p class="card-detail-title">{{ cat.name }}</p>
     <p>Breed: {{ cat.breed }}</p>
     <p>Sex: {{ cat.sex }}</p>
     <p>Age: {{ cat.age }}</p>
     <p>Health: {{cat.health}}</p>
     <p>Description: {{cat.description}}</p>
-    <!-- <p>Image: {{cat.image_url}}</p> -->
   </div>
   {% if user.is_superuser %}
   <form action="{% url 'update_pending' cat.id %}" method="post">
     {% csrf_token %} {{ pending_form.as_p }}
-    <input type="submit" class="btn" value="Update Status" />
+    <input type="submit" value="Update Status" class="btn btn-primary"/>
   </form>
   <div class="card-action">
-    <a href="{% url 'cats_update' cat.id %}">Edit</a>
-    <a href="{% url 'cats_delete' cat.id %}">Delete</a>
+    <br />
+    <a href="{% url 'cats_update' cat.id %}" class="btn btn-secondary">Edit</a>
+    <a href="{% url 'cats_delete' cat.id %}" class="btn btn-secondary">Delete</a>
   </div>
   {% endif %}
 </div>
@@ -34,7 +34,10 @@
           <span>{{ need.name }}</span> {{ need.quantity }}
         </span>
         <br />
-        <a href="{% url 'unassoc_needs' cat.id need.id %}">Remove</a>
+        {% if user.is_superuser %}
+        
+        <a href="{% url 'unassoc_needs' cat.id need.id %}" class="btn btn-primary">Remove</a>
+        {% endif %}
       </div>
     </div>
     {% endfor %} {% else %}
@@ -54,7 +57,10 @@
       <div class="card-action">
         <form action="{% url 'assoc_needs' cat.id need.id %}" method="post">
           {% csrf_token %}
-          <button type="submit" class="btn">Add</button>
+          {% if user.is_superuser %}
+          
+          <button type="submit" class="btn btn-primary">Add</button>
+          {% endif %}
         </form>
       </div>
     </div>
