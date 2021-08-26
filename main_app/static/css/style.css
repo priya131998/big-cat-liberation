@@ -39,7 +39,21 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
   }
+
+  .rectangle {
+    height: 28%;
+    width: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    top: 30%;
+    left: 25%;
+    position: absolute;
+    text-align: center;
+    border-radius: 10px;
+  }
+
+ 
   
+
     
  
   
