@@ -2,10 +2,10 @@
 
 <h1>Cat Details</h1>
 
-<div class="card">
-  <div class="card-content">
-    <img src="{{ cat.image_url }}" class="card-img-top" alt="..." />
-    <span class="card-title">{{ cat.name }}</span>
+<div class="cat-detail-card">
+  <div class="cat-detail">
+    <img src="{{ cat.image_url }}" class="card-img-detail" alt="..." />
+    <p class="card-detail-title">{{ cat.name }}</p>
     <p>Breed: {{ cat.breed }}</p>
     <p>Sex: {{ cat.sex }}</p>
     <p>Age: {{ cat.age }}</p>

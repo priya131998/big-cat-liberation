@@ -55,7 +55,7 @@
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
   --bs-body-color: #000000;
-  --bs-body-bg: rgb(190, 26, 26);
+  --bs-body-bg: #d6b072;
 }
 
 *,
@@ -1157,6 +1157,7 @@ progress {
   .col-md-4 {
     flex: 0 0 auto;
     width: 33.33333333%;
+    padding-top: 30px;
   }
 
   .col-md-5 {
@@ -4441,16 +4442,20 @@ textarea.form-control-lg {
   color: #fff;
 }
 
+.cat-cards {
+  padding-top: 60px;
+}
+
 .card {
   position: relative;
   display: flex;
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: #21252a;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
+  border-radius: 10px;
 }
 .card > hr {
   margin-right: 0;
@@ -4475,9 +4480,27 @@ textarea.form-control-lg {
   border-top: 0;
 }
 
+.card-body a {
+  text-decoration: none;
+}
+
+.card-body a:hover {
+  text-decoration: solid white underline;
+}
+
 .card-body {
   flex: 1 1 auto;
   padding: 1rem 1rem;
+}
+
+.card-detail-title {
+  color: black;
+}
+
+.card-title {
+  color: white;
+  text-align: center;
+  text-decoration: none;
 }
 
 .card-title {
@@ -4538,16 +4561,24 @@ textarea.form-control-lg {
   border-radius: calc(0.25rem - 1px);
 }
 
+.card-img-detail {
+  width: 80%;
+  margin: 40px 80px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-img-top {
+  width: 250px;
+  height: 200px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
 .card-img,
 .card-img-top,
 .card-img-bottom {
   width: 100%;
-}
-
-.card-img,
-.card-img-top {
-  border-top-left-radius: calc(0.25rem - 1px);
-  border-top-right-radius: calc(0.25rem - 1px);
 }
 
 .card-img,
