@@ -87,9 +87,6 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
@@ -130,6 +127,5 @@ LOGOUT_REDIRECT_URL = '/'
 
 
 # Configure Django App for Heroku.
-import django_heroku
-django_heroku.settings(locals())
+
 
