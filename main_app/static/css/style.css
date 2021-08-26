@@ -40,17 +40,8 @@ body {
     background-size: cover;
   }
 
+ 
   .rectangle {
-    height: 28%;
-    width: 50%;
-    background: rgba(0, 0, 0, 0.5);
-    top: 30%;
-    left: 25%;
-    position: absolute;
-    text-align: center;
-    border-radius: 10px;
-  }
-  .blank-rectangle {
     height: 30%;
     width: 60%;
     background: rgba(0, 0, 0, 0.4);
@@ -61,13 +52,6 @@ body {
     border-radius: 10px;
   }
 
-  /* .title {
-    color: white;
-    font-size: 2.6vw;
-    white-space: nowrap;
-    overflow: hidden;
-    transform: translateY(-50%); 
-  } */
   .title1 {
     margin-top:0;
     color: white;
@@ -92,6 +76,12 @@ body {
       blink-caret .75s step-end infinite;
   }
   
+  @media only screen and (max-width: 480px) {
+    #title, .title  {
+      font-size: 10vw;
+      margin-top: 30%;
+  }
+  }
   /* The typing effect */
   @keyframes typing {
     from { width: 0 }
