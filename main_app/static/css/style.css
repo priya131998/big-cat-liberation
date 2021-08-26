@@ -40,18 +40,77 @@ body {
     background-size: cover;
   }
 
+ 
   .rectangle {
-    height: 28%;
-    width: 50%;
-    background: rgba(0, 0, 0, 0.5);
-    top: 30%;
-    left: 25%;
+    height: 30%;
+    width: 60%;
+    background: rgba(0, 0, 0, 0.4);
+    top: 60%;
+    left: 20%; 
     position: absolute;
     text-align: center;
     border-radius: 10px;
   }
 
-  #title {
+  .title1 {
+    margin-top:0;
     color: white;
-    font-size: 3vw;
+    font-size: 5vw;
+    text-align: center;
+    padding-top: 50px;
   }
+  .title {
+    text-align: center;
+    /* padding-top: 18%; */
+    padding-top: 0%;
+    color: white;
+    font-size: 4vw;
+    text-align: center;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    /* border-right: .15em solid orange; The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 19px auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation: 
+      typing 3.5s steps(30, end),
+      blink-caret .75s step-end infinite;
+  }
+  
+  @media only screen and (max-width: 480px) {
+    #title, .title  {
+      font-size: 10vw;
+      margin-top: 30%;
+  }
+  }
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+  }
+
+  .button {
+    background-color: #F26419; /* Green */
+    border: none;
+    border-radius: 10px;
+    align-items: center;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2% 0;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    /* box-shadow: 0 8px 16px 0 rgba(221, 107, 62, 0.24), 0 6px 20px 0 rgba(255, 255, 255, 0.24); */
+    box-shadow: 0 8px 16px 0 rgba(212, 82, 12, 0.34), 0 6px 20px 0 rgba(212, 82, 12, 0.34);
+  }
+    
+
