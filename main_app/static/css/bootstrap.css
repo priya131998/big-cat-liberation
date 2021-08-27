@@ -4796,6 +4796,10 @@ fieldset:disabled .btn {
   margin-top: 10px;
 }
 
+.card-content p {
+  color: white;
+}
+
 .card {
   position: relative;
   display: flex;
