@@ -106,6 +106,13 @@ hr:not([size]) {
   color: white;
 }
 
+.cat-detail-admin label {
+  font-size: 20px;
+}
+
+#id_pending{
+  font-size: 18px;
+}
 h6,
 .h6,
 h5,
@@ -2577,6 +2584,8 @@ textarea.form-control-lg {
   opacity: 0.65;
 }
 
+
+
 .form-range {
   width: 100%;
   height: 1.5rem;
@@ -3078,7 +3087,7 @@ fieldset:disabled .btn {
   border-color: #F26419;
   border-radius: 15px;
   padding: 0.2rem 0.4rem;
-  width: 150px;
+  width: 163px;
 }
 
 .btn-primary-status:hover {
@@ -3171,7 +3180,7 @@ fieldset:disabled .btn {
   background-color: #6c757d;
   border-color: #6c757d;
   border-radius: 15px;
-  padding: -1px;
+  padding-top: 9px;
 }
 .btn-secondary-detail:hover {
   color: #fff;
@@ -4870,6 +4879,7 @@ fieldset:disabled .btn {
   color: black;
   margin-top: auto;
   margin-bottom: auto;
+  font-size: 20px;
 }
 
 .cat-detail a {
@@ -4882,13 +4892,16 @@ fieldset:disabled .btn {
 }
 
 .cat-detail-card {
-  width: 75%;
+  width: 65%;
   display: flex;
   grid-column: 1fr 1fr;
   padding-left: 50px;
   padding-right: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   background-color: white;
   border-radius: 10px;
+  margin-left: 16%;
 
 }
 
