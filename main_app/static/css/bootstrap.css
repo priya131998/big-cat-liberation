@@ -183,6 +183,7 @@ h6,
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+  color: black;
 }
 
 abbr[title],
@@ -3149,6 +3150,22 @@ fieldset:disabled .btn {
   border-color: #0d6efd;
 }
 
+.btn-primary-detail {
+  color: #fff;
+  font-size: 12px;
+  background-color: #F26419;
+  border-color: #F26419;
+  border-radius: 15px;
+  padding: -1px;
+}
+.btn-primary-detail:hover {
+  color: #fff;
+  font-size: 12px;
+  background-color: #D4520C;
+  border-color: #D4520C;
+  padding: -1px;
+}
+
 .btn-secondary-detail {
   color: #fff;
   background-color: #6c757d;
@@ -4798,6 +4815,7 @@ fieldset:disabled .btn {
   background-color: white;
   margin-top: 10px;
 }
+
 
 .card {
   position: relative;
