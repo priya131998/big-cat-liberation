@@ -4,17 +4,17 @@
 <div class="container">
   <div class="cat-cards row">
     {% for cat in cats %} {% if cat.pending == 'Approved' %}
-    <div class='col-md-4'>
-    <div class="card" style="width: 18rem">
-      <img src="{{ cat.image_url }}" class="card-img-top" alt="..." />
-      <div class="card-body">
-        <a href="{% url 'detail' cat.id %}">
-          <h5 class="card-title">{{ cat.name }}</h5></a
-        >
+    <div class="col-md-4">
+      <div class="card" style="width: 18rem">
+        <img src="{{ cat.image_url }}" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <a href="{% url 'detail' cat.id %}">
+            <h5 class="card-title">{{ cat.name }}</h5></a
+          >
+        </div>
       </div>
     </div>
-    </div>
-  {% endif %} {% endfor %}
+    {% endif %} {% endfor %}
   </div>
 </div>
 {% endblock %}

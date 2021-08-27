@@ -31,8 +31,8 @@ def cats_index(request):
 
 def cats_detail(request, cat_id):
     cat = Cat.objects.get(id=cat_id)
-    needs_cat_doesnt_have = Needs.objects.exclude(id__in = cat.needs.all().values_list('id'))
     current_user = request.user
+    needs_cat_doesnt_have = Needs.objects.exclude(id__in = cat.needs.all().values_list('id'))
     pending_form = PendingForm()
     return render(request, 'cats/detail.html', {
         'cat': cat,
