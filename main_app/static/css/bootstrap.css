@@ -179,7 +179,7 @@ h6,
 p {
   margin-top: 0;
   margin-bottom: 1rem;
-  color: white;
+  color: black;
 }
 
 abbr[title],
@@ -3144,6 +3144,22 @@ fieldset:disabled .btn {
   color: #fff;
   background-color: #0d6efd;
   border-color: #0d6efd;
+}
+
+.btn-primary-detail {
+  color: #fff;
+  font-size: 12px;
+  background-color: #F26419;
+  border-color: #F26419;
+  border-radius: 15px;
+  padding: -1px;
+}
+.btn-primary-detail:hover {
+  color: #fff;
+  font-size: 12px;
+  background-color: #D4520C;
+  border-color: #D4520C;
+  padding: -1px;
 }
 
 .btn-secondary-detail {

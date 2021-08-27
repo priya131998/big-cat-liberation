@@ -1,12 +1,11 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1>Cat Details</h1>
+<h1>{{ cat.name }}</h1>
 
 <div class="cat-detail-card">
   <div class="cat-detail">
     <img src="{{ cat.image_url }}" class="card-img-detail" alt="..." />
-    <p class="card-detail-title">{{ cat.name }}</p>
-    <p>Breed: {{ cat.breed }}</p>
+    <p>Species: {{ cat.breed }}</p>
     <p>Sex: {{ cat.sex }}</p>
     <p>Age: {{ cat.age }}</p>
     <p>Health: {{cat.health}}</p>
@@ -15,12 +14,12 @@
   {% if user.is_superuser %}
   <form action="{% url 'update_pending' cat.id %}" method="post">
     {% csrf_token %} {{ pending_form.as_p }}
-    <input type="submit" value="Update Status" class="btn btn-primary"/>
+    <input type="submit" value="Update Status" class="btn btn-primary-status"/>
   </form>
   <div class="card-action">
     <br />
-    <a href="{% url 'cats_update' cat.id %}" class="btn btn-secondary">Edit</a>
-    <a href="{% url 'cats_delete' cat.id %}" class="btn btn-secondary">Delete</a>
+    <a href="{% url 'cats_update' cat.id %}" class="btn btn-secondary-detail">Edit</a>
+    <a href="{% url 'cats_delete' cat.id %}" class="btn btn-secondary-detail">Delete</a>
   </div>
   {% endif %}
 </div>
@@ -35,7 +34,7 @@
         </span>
         <br />
         {% if user.is_superuser %}
-        <a href="{% url 'unassoc_needs' cat.id need.id %}" class="btn btn-primary">Remove</a>
+        <a href="{% url 'unassoc_needs' cat.id need.id %}" class="btn btn-primary-detail">Remove</a>
         {% endif %}
       </div>
     </div>
