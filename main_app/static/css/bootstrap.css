@@ -102,6 +102,10 @@ hr:not([size]) {
   height: 1px;
 }
 
+.card-content p {
+  color: white;
+}
+
 h6,
 .h6,
 h5,

@@ -34,3 +34,8 @@ Designed a sanctuary app for big cats. Where the user gives away their cats if t
 * Link to the [Trello Board](https://trello.com/b/SFAIHgpR/planning)
 * Link to the [Pitch Deck](https://docs.google.com/presentation/d/1Lxul0tmPEzeC0ydBnFt54hAZ-nQEo6-a13E3LvrZzTk/edit#slide=id.ge827bfc624_3_0)
 * Link to the [Heroku](https://the-big-cat-liberation.herokuapp.com)
+
+### Ice Box Feature: 
+
+1. Do some more styling
+2. Add a donation box feture
