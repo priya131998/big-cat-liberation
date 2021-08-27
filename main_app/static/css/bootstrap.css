@@ -4829,6 +4829,19 @@ fieldset:disabled .btn {
   border-top: 0;
 }
 
+.cat-detail {
+  color: black;
+}
+
+.cat-detail a {
+  text-decoration: none;
+  color: black;
+}
+
+.cat-detail a:hover {
+  text-decoration: solid black underline;
+}
+
 .card-body a {
   text-decoration: none;
 }

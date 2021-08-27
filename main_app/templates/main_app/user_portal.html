@@ -3,18 +3,18 @@
 <h1>Welcome, {{ user }}</h1>
 
 {% for cat in cats %} {% if user == cat.user %}
-<div class="card">
-  <a href="{% url 'detail' cat.id %}">
-    <div class="card-content">
-    <img src="{{ cat.image_url }}" class="card-img-detail" alt="..." />
-      <span class="card-title">{{ cat.name }}</span>
+<div class="cat-detail-card">
+  <div class="cat-detail">
+    <a href="{% url 'detail' cat.id %}">
+      <img src="{{ cat.image_url }}" class="card-img-detail" alt="..." />
+      <p class="card-detail-title">{{ cat.name }}</p>
       <h5>Application Status: {{ cat.pending }}</h5>
       <p>Breed: {{ cat.breed }}</p>
       <p>Sex: {{ cat.sex }}</p>
       <p>Age: {{ cat.age }}</p>
       <p>Health: {{ cat.health }}</p>
-    </div>
-  </a>
+    </a>
+  </div>
 </div>
 
 {% endif %} {% endfor %} {% endblock %}
