@@ -179,6 +179,7 @@ h6,
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+  color: white;
 }
 
 abbr[title],
@@ -4795,6 +4796,10 @@ fieldset:disabled .btn {
   margin-top: 10px;
 }
 
+.card-content p {
+  color: white;
+}
+
 .card {
   position: relative;
   display: flex;
@@ -4827,6 +4832,19 @@ fieldset:disabled .btn {
 .card > .card-header + .list-group,
 .card > .list-group + .card-footer {
   border-top: 0;
+}
+
+.cat-detail {
+  color: black;
+}
+
+.cat-detail a {
+  text-decoration: none;
+  color: black;
+}
+
+.cat-detail a:hover {
+  text-decoration: solid black underline;
 }
 
 .card-body a {
