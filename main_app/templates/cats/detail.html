@@ -2,39 +2,54 @@
 
 <h1>{{ cat.name }}</h1>
 
+
+<img src="{{ cat.image_url }}" class="card-img-detail" alt="..." />
 <div class="cat-detail-card">
   <div class="cat-detail">
-    <img src="{{ cat.image_url }}" class="card-img-detail" alt="..." />
     <p>Species: {{ cat.breed }}</p>
     <p>Sex: {{ cat.sex }}</p>
     <p>Age: {{ cat.age }}</p>
     <p>Health: {{cat.health}}</p>
     <p>Description: {{cat.description}}</p>
   </div>
-  {% if user.is_superuser %}
-  <form action="{% url 'update_pending' cat.id %}" method="post">
-    {% csrf_token %} {{ pending_form.as_p }}
-    <input type="submit" value="Update Status" class="btn btn-primary-status"/>
-  </form>
-  <div class="card-action">
-    <br />
-    <a href="{% url 'cats_update' cat.id %}" class="btn btn-secondary-detail">Edit</a>
-    <a href="{% url 'cats_delete' cat.id %}" class="btn btn-secondary-detail">Delete</a>
-  </div>
+  <div class="cat-detail-admin">
+    {% if user.is_superuser %}
+    <form action="{% url 'update_pending' cat.id %}" method="post">
+      {% csrf_token %} {{ pending_form.as_p }}
+      <input
+        type="submit"
+        value="Update Status"
+        class="btn btn-primary-status"
+      />
+    </form>
+    <div class="card-action">
+      <br />
+      <a href="{% url 'cats_update' cat.id %}" class="btn btn-secondary-detail"
+        >Edit</a
+      >
+      <a href="{% url 'cats_delete' cat.id %}" class="btn btn-secondary-detail"
+        >Delete</a
+      >
+    </div>
+</div>
   {% endif %}
 </div>
 <div class="row">
   <div class="col s6">
     <h3>{{ cat.name }}'s Needs</h3>
     {% if cat.needs.count %} {% for need in cat.needs.all %}
-    <div class="card">
+    <div class="card-need">
       <div class="card-content">
-        <span class="card-title">
+        <span class="card-title-need">
           <span>{{ need.name }}</span> {{ need.quantity }}
         </span>
         <br />
         {% if user.is_superuser %}
-        <a href="{% url 'unassoc_needs' cat.id need.id %}" class="btn btn-primary-detail">Remove</a>
+        <a
+          href="{% url 'unassoc_needs' cat.id need.id %}"
+          class="btn btn-primary-detail"
+          >Remove</a
+        >
         {% endif %}
       </div>
     </div>
@@ -46,17 +61,16 @@
   <div class="col s6">
     <h3>Available Needs</h3>
     {% if needs.count %} {% for need in needs.all %}
-    <div class="card">
+    <div class="card-need">
       <div class="card-content">
-        <span class="card-title">
+        <span class="card-title-need">
           <span>{{ need.name }}</span> {{ need.quantity }}
         </span>
       </div>
       <div class="card-action">
         <form action="{% url 'assoc_needs' cat.id need.id %}" method="post">
-          {% csrf_token %}
-          {% if user.is_superuser %}
-          
+          {% csrf_token %} {% if user.is_superuser %}
+
           <button type="submit" class="btn btn-primary">Add</button>
           {% endif %}
         </form>
@@ -66,9 +80,10 @@
     <h5>{{cat.name}}'s needs have been met</h5>
     {% endif %}
   </div>
+  {% endblock %}
+</div>
+
   <script>
     const selectEl = document.getElementById("id_pending");
     M.FormSelect.init(selectEl);
   </script>
-  {% endblock %}
-</div>
