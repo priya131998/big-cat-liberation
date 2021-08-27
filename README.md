@@ -7,7 +7,7 @@ Designed a sanctuary app for big cats. Where the user gives away their cats if t
 
 ### Screenshots of the app: 
 
-<img src="../images/Screenshot1.png" alt="Landing Page">
+<img src="main_app/static/images/Screenshot1.png" alt="Landing Page">
 
 
 
