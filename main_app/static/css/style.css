@@ -54,7 +54,7 @@ body {
     position: absolute;
     text-align: center;
     border-radius: 10px;
-
+    padding-bottom: 10px;
   }
 
 
@@ -63,7 +63,7 @@ body {
     font-family: 'Quattrocento', serif;
     padding-top: 0%;
     color: white;
-    font-size: 4vw;
+    font-size: 3.5vw;
     text-align: center;
     overflow: hidden; /* Ensures the content is not revealed until the animation */
     white-space: nowrap; /* Keeps the content on a single line */
@@ -79,7 +79,7 @@ body {
     font-family: 'Quattrocento', serif;
     padding-top: 0%;
     color: white;
-    font-size: 2.5vw;
+    font-size: 2vw;
     text-align: center;
     overflow: hidden; /* Ensures the content is not revealed until the animation */
     white-space: nowrap; /* Keeps the content on a single line */
@@ -115,7 +115,7 @@ body {
     border-radius: 10px;
     align-items: center;
     color: white;
-    padding: 15px 32px;
+    padding: 13px 30px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
