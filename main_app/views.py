@@ -62,32 +62,35 @@ def signup(request):
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
 
-class NeedsList(ListView):
+class NeedsList(LoginRequiredMixin, ListView):
     model = Needs
 
-class NeedsDetail(DetailView):
+class NeedsDetail(LoginRequiredMixin, DetailView):
     model = Needs
 
-class NeedsCreate(CreateView):
+class NeedsCreate(LoginRequiredMixin, CreateView):
     model = Needs
     fields = '__all__'
 
-class NeedsUpdate(UpdateView):
+class NeedsUpdate(LoginRequiredMixin, UpdateView):
     model = Needs
     fields = ['name', 'quantity', 'link', 'reason']
 
-class NeedsDelete(DeleteView):
+class NeedsDelete(LoginRequiredMixin, DeleteView):
     model = Needs
     success_url = '/needs/'
 
+@login_required
 def assoc_needs(request, cat_id, needs_id):
     Cat.objects.get(id=cat_id).needs.add(needs_id)
     return redirect('detail', cat_id=cat_id)
 
+@login_required
 def unassoc_needs(request, cat_id, needs_id):
     Cat.objects.get(id=cat_id).needs.remove(needs_id)
     return redirect('detail', cat_id=cat_id)
 
+@login_required
 def user_index(request):
     # current_user = request.user
     cats = Cat.objects.all()
@@ -95,11 +98,11 @@ def user_index(request):
     # 'user': current_user 
     })
 
-class UpdatePending(UpdateView):
+class UpdatePending(LoginRequiredMixin, UpdateView):
     model = Cat
     fields = ['pending']
     
-
+@login_required
 def admin_portal(request):
     cats = Cat.objects.all()
     return render(request, 'main_app/admin_portal.html', {'cats': cats})
