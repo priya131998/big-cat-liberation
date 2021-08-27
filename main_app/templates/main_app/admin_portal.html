@@ -4,18 +4,18 @@
 
 {% for cat in cats %} {% if cat.pending == 'Pending' %}
 
-<div class="card">
-  <a href="{% url 'detail' cat.id %}">
-    <div class="card-content">
+<div class="cat-detail-card">
+  <div class="cat-detail">
+    <a href="{% url 'detail' cat.id %}">
       <img src="{{ cat.image_url }}" class="card-img-detail" alt="..." />
-      <span class="card-title">{{ cat.name }}</span>
+      <p class="card-detail-title">{{ cat.name }}</p>
       <h5>Application Status: {{ cat.pending }}</h5>
       <p>Breed: {{ cat.breed }}</p>
       <p>Sex: {{ cat.sex }}</p>
       <p>Age: {{ cat.age }}</p>
       <p>Health: {{ cat.health }}</p>
-    </div>
-  </a>
+    </a>
+  </div>
 </div>
 
 {% endif %} {% endfor %} {% endblock %}
