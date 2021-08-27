@@ -4812,6 +4812,10 @@ fieldset:disabled .btn {
   margin-top: 10px;
 }
 
+.card-content {
+  color: black;
+}
+
 
 .card {
   position: relative;
@@ -4847,8 +4851,21 @@ fieldset:disabled .btn {
   border-top: 0;
 }
 
+.detail-page {
+  display: flex;
+  grid-row: 400px 1fr 1fr;
+}
+
+.cat-detail-admin {
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
 .cat-detail {
   color: black;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .cat-detail a {
@@ -4858,6 +4875,17 @@ fieldset:disabled .btn {
 
 .cat-detail a:hover {
   text-decoration: solid black underline;
+}
+
+.cat-detail-card {
+  width: 75%;
+  display: flex;
+  grid-column: 1fr 1fr;
+  padding-left: 50px;
+  padding-right: 50px;
+  background-color: white;
+  border-radius: 10px;
+
 }
 
 .card-body a {
@@ -4948,8 +4976,11 @@ fieldset:disabled .btn {
 }
 
 .card-img-detail {
-  width: 80%;
-  margin: 40px 80px;
+  display: block;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
