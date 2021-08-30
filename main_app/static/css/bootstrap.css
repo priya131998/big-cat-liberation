@@ -4899,8 +4899,8 @@ fieldset:disabled .btn {
 
 .cat-detail-card {
   width: 65%;
-  /* display: flex; */
-  /* grid-column: 1fr 1fr; */
+  display: flex;
+  grid-column: 1fr 1fr;
   padding-left: 50px;
   padding-right: 50px;
   padding-top: 20px;
