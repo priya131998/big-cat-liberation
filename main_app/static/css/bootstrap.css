@@ -5007,6 +5007,7 @@ fieldset:disabled .btn {
   margin-bottom: 50px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  border: 2px solid black;
 }
 
 .card-img-top {
