@@ -10,7 +10,7 @@ from .models import Cat, Needs
 
 class CatCreate(LoginRequiredMixin, CreateView):
     model = Cat
-    fields = ['name', 'breed', 'sex', 'age', 'health', 'description', 'image_url']
+    fields = ['name', 'species', 'sex', 'age', 'health', 'description', 'image_url']
     success_url = '/cats/'
 
     def form_valid(self, form):
@@ -19,7 +19,7 @@ class CatCreate(LoginRequiredMixin, CreateView):
 
 class CatUpdate(LoginRequiredMixin, UpdateView):
     model = Cat
-    fields = ['name', 'breed', 'sex', 'age', 'health', 'description', 'image_url']
+    fields = ['name', 'species', 'sex', 'age', 'health', 'description', 'image_url']
 
 class CatDelete(LoginRequiredMixin, DeleteView):
     model = Cat
