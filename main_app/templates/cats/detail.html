@@ -2,7 +2,6 @@
 
 <h1>{{ cat.name }}</h1>
 
-
 <img src="{{ cat.image_url }}" class="card-img-detail" alt="..." />
 <div class="cat-detail-card">
   <div class="cat-detail">
@@ -31,8 +30,8 @@
         >Delete</a
       >
     </div>
-</div>
-  {% endif %}
+    {% endif %}
+  </div>
 </div>
 <div class="needs-row">
   <div class="col s6">
@@ -83,7 +82,7 @@
   {% endblock %}
 </div>
 
-  <script>
-    const selectEl = document.getElementById("id_pending");
-    M.FormSelect.init(selectEl);
-  </script>
+<script>
+  const selectEl = document.getElementById("id_pending");
+  M.FormSelect.init(selectEl);
+</script>
