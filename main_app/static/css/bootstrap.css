@@ -766,8 +766,16 @@ progress {
 
 }
 
-.col s6 {
-  margin-top: 5px;
+.needs-row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 3%;
+  width: 99%;
+  margin-top: 50px;
+  margin-right: calc(var(--bs-gutter-x) * -0.5);
+  margin-left: 16%;
 }
 
 .col-auto {
