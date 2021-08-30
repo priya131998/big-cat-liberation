@@ -25,7 +25,7 @@ class Needs(models.Model):
 
 class Cat(models.Model):
     name = models.CharField(max_length=50)
-    breed = models.CharField(max_length=50)
+    species = models.CharField(max_length=50)
     sex = models.CharField(max_length=50)
     age = models.IntegerField()
     health = models.CharField(max_length=50)

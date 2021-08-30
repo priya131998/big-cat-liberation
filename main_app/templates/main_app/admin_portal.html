@@ -10,12 +10,13 @@
       <img src="{{ cat.image_url }}" class="card-img-detail" alt="..." />
       <p class="card-detail-title">{{ cat.name }}</p>
       <h5>Application Status: {{ cat.pending }}</h5>
-      <p>Breed: {{ cat.breed }}</p>
+      <p>Species: {{ cat.species }}</p>
       <p>Sex: {{ cat.sex }}</p>
       <p>Age: {{ cat.age }}</p>
       <p>Health: {{ cat.health }}</p>
     </a>
   </div>
 </div>
+<br>
 
 {% endif %} {% endfor %} {% endblock %}
